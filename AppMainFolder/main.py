@@ -78,6 +78,20 @@ logo = html.Img(src=app.get_asset_url('DigitalDivide_logo_320x240.png'), style={
                                       "opacity": "67%"
                                  })
 
+# navigation bar
+navBar = html.Nav(
+            [html.A('Home', className="navItem", href='/'),
+             html.A('Graphs', className="navItem", href='/graphs') 
+            ],
+            style={
+                "font-family": "Trebuchet MS",
+                "backgroundColor": "#1d2b37",
+                "display": "flex",
+                "margin": "0 auto",
+                "width": "8%"
+            }
+            )
+
 # Banner with titles and reset button
 banner = html.Div([
     html.H3(dcc.Link(logo, href='/'),
@@ -109,7 +123,7 @@ banner = html.Div([
                     "font-family": "Trebuchet MS"
                 }
                 ),
-
+    navBar,
     reset_data  # -----Reset button
 
 ],
@@ -315,7 +329,7 @@ Last_updated = html.Div(
                       "font-family": "Trebuchet MS"})
 
 
-# Graphs link
+# Graphs link, being replaced with navBar
 graphs = html.H3(["VIEW GRAPHS"],
                  className="graphsLink",
                  style={
@@ -329,7 +343,7 @@ graphs = html.H3(["VIEW GRAPHS"],
                  "opacity": "67%",
                  })
 
-# Home link
+# Home link, being replaced with navBar
 home = html.H3(["BACK"],
                className="homeLink",
                style={
@@ -358,8 +372,6 @@ container_1 = html.Div([
         html.Br(),
         container_0,
         final_map,
-        dcc.Link(graphs, href='/graphs'),
-
     ],
         style={
         "position": "absolute",
@@ -383,7 +395,6 @@ container_2 = html.Div([
         BGimage,
         banner,
         container_3,
-        dcc.Link(home, href='/'),
         html.Br(),
 
     ],
