@@ -197,9 +197,11 @@ drop_down = html.Div([
             {'label': 'Q1 2021', 'value': '2021-01-01'},
             {'label': 'Q2 2021', 'value': '2021-04-01'},
             {'label': 'Q3 2021', 'value': '2021-07-01'},
+            {'label': 'Q4 2021', 'value': '2021-10-01'},
+            {'label': 'Q1 2022', 'value': '2022-01-01'},
 
         ],
-        value="2021-07-01",
+        value="2022-01-01",
         searchable=True,
         placeholder="Select a Quarter from drop-down",
                     style={"margin": "10px,0,10px,0",
