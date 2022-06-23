@@ -154,14 +154,21 @@ image2 = html.Img(src=app.get_asset_url('downSpeed.png'), style={
                                      "position": "relative",
                                      "zIndex": "999",
                                  })
-image3 = html.Img(src=app.get_asset_url('highIncome.png'), style={
+image3 = html.Img(src=app.get_asset_url('Up_Down_Speed_BG.png'), style={
                                      "margin": "0 auto",
                                      "borderRadius": "1vw",
                                      "display": "block",
                                      "position": "relative",
                                      "zIndex": "999",
                                  })
-image4 = html.Img(src=app.get_asset_url('lowIncome.png'), style={
+image4 = html.Img(src=app.get_asset_url('downSpeed_Line.png'), style={
+                                        "margin": "0 auto",
+                                        "borderRadius": "1vw",
+                                        "display": "block",
+                                        "position": "relative",
+                                        "zIndex": "999",
+                                 })
+image5 = html.Img(src=app.get_asset_url('upSpeed_Line.png'), style={
                                         "margin": "0 auto",
                                         "borderRadius": "1vw",
                                         "display": "block",
@@ -169,6 +176,13 @@ image4 = html.Img(src=app.get_asset_url('lowIncome.png'), style={
                                         "zIndex": "999",
                                  })
 
+image6 = html.Img(src=app.get_asset_url('avgSpeed_Line.png'), style={
+                                        "margin": "0 auto",
+                                        "borderRadius": "1vw",
+                                        "display": "block",
+                                        "position": "relative",
+                                        "zIndex": "999",
+                                 })
 # Background image
 
 BGimage = html.Img(src=app.get_asset_url('orlando-cityscape.jpg'), style={
@@ -197,9 +211,11 @@ drop_down = html.Div([
             {'label': 'Q1 2021', 'value': '2021-01-01'},
             {'label': 'Q2 2021', 'value': '2021-04-01'},
             {'label': 'Q3 2021', 'value': '2021-07-01'},
+            {'label': 'Q4 2021', 'value': '2021-10-01'},
+            {'label': 'Q1 2022', 'value': '2022-01-01'},
 
         ],
-        value="2021-07-01",
+        value="2022-01-01",
         searchable=True,
         placeholder="Select a Quarter from drop-down",
                     style={"margin": "10px,0,10px,0",
@@ -306,7 +322,7 @@ container_0 = html.Div([
     )
 
 container_3 = html.Div([
-    image, image2, image3, image4
+    image, image2, image3, image4, image5, image6
 ],
     style={
     "display": "flex",
@@ -405,7 +421,7 @@ container_2 = html.Div([
         "right": "0px",
         "bottom": "0px",
         "width": "100%",
-        "height": "1607px",
+        "height": "3500px",
         "backgroundColor": "#15202B",
         "margin": "0",
         "padding": "0"
