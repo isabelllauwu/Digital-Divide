@@ -215,8 +215,8 @@ drop_down = html.Div([
 colors = html.Div([
     dcc.Dropdown(
         id="colors",
-        options=colorscales,
-        value='tempo',
+        #options=colorscales,
+        value='rdylgn',
         style={
             "width": "190px",
             "color": "grey",
@@ -232,6 +232,7 @@ speed = html.Div([
         options=[
             {'label': 'Upload Speeds', 'value': 'avg_u_mbps'},
             {'label': 'Download Speeds', 'value': 'avg_d_mbps'}
+            # {'label': 'Download Speeds', 'value': 'avg_lat_ms'}
 
 
         ],
