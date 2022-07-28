@@ -6,7 +6,7 @@ import geopandas as gp
 import geojson
 import re
 
-file = "filtered_orlando_data_2021-07-01.geojson"
+file = "filtered_orlando_data_2022-01-01.geojson"
 date = re.search("(([0-9]{4}\-[0-9]{2}\-[0-9]{2}))", file).group(0)
 
 def main():
