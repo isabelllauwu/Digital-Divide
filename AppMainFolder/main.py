@@ -81,14 +81,16 @@ logo = html.Img(src=app.get_asset_url('DigitalDivide_logo_320x240.png'), style={
 # navigation bar
 navBar = html.Nav(
             [html.A('Home', className="navItem", href='/'),
-             html.A('Graphs', className="navItem", href='/graphs') 
+             html.A('Graphs', className="navItem", href='/graphs') ,
+             html.A('Test your speeds', className="navItem", href='/speedtest')
+
             ],
             style={
                 "font-family": "Trebuchet MS",
                 "backgroundColor": "#1d2b37",
                 "display": "flex",
-                "margin": "0 auto",
-                "width": "8%"
+                "margin": "5px",
+                "justify-content":"center"
             }
             )
 
@@ -319,7 +321,9 @@ container_0 = html.Div([
     "zIndex": "999",
     },
     id="heatMap"
+    
     )
+    
 
 container_3 = html.Div([
     image, image2, image3, image4, image5, image6
@@ -387,7 +391,7 @@ container_1 = html.Div([
         html.Br(),
         html.Br(),
         container_0,
-        final_map,
+        final_map
     ],
         style={
         "position": "absolute",
@@ -432,6 +436,16 @@ container_2 = html.Div([
     
 ])
 
+speed_page = html.Div([
+    html.Div([
+        BGimage,
+        banner,
+        html.Br(),
+        ]),
+    html.Div(html.Iframe("Iframe", style={ "z-index":"999","min-height":"360px","width":"100%"},
+            src="//openspeedtest.com/Get-widget.php"), style= {"display":"flex"})
+])
+
 # Final Layout
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
@@ -450,6 +464,8 @@ graphs_layout = html.Div([container_2])
 def display_page(pathname):
     if pathname == '/graphs':
         return graphs_layout
+    elif pathname == '/speedtest':
+        return speed_page
     else:
         return home_page
 
