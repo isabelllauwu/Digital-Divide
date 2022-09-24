@@ -491,7 +491,8 @@ def update_map(qrt, name, int_speed, colors):
     fig = px.choropleth_mapbox(base, geojson=data, locations="NeighName", color=int_speed, featureidkey="properties.NeighName",
                                center={"lat": 28.488137, "lon": -81.331054},
                                color_continuous_scale=colors, #Changes Here
-                               mapbox_style="carto-positron", zoom=10)
+                               mapbox_style="carto-positron", zoom=10,
+                               labels={'NeighName':'Neighborhood', 'avg_d_mbps':'Average Download Speed'})
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
 
     #date and time
