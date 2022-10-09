@@ -22,7 +22,7 @@ now = datetime.now()
 dt = now.strftime("%d/%m/%Y %H:%M:%S")
 
 # Read geojson files
-d1 = open(r"AppMainFolder\backend_resources\results\orlando_averaged_2022-01-01.geojson")
+d1 = open(r"backend_resources\results\orlando_averaged_2022-01-01.geojson")
 data = json.load(d1)
 d2 = data["features"][0]
 
@@ -479,7 +479,7 @@ def display_page(pathname):
 )
 # call back function
 def update_map(qrt, name, int_speed, colors):
-    d1 = open(r"AppMainFolder\backend_resources\results\orlando_averaged_" + qrt + ".geojson")
+    d1 = open(r"backend_resources\results\orlando_averaged_" + qrt + ".geojson")
     data = json.load(d1)
     base = pd.json_normalize(data, record_path=['features'])
     base = base.iloc[:, [6, 7, 8]]
@@ -491,7 +491,8 @@ def update_map(qrt, name, int_speed, colors):
     fig = px.choropleth_mapbox(base, geojson=data, locations="NeighName", color=int_speed, featureidkey="properties.NeighName",
                                center={"lat": 28.488137, "lon": -81.331054},
                                color_continuous_scale=colors, #Changes Here
-                               mapbox_style="carto-positron", zoom=10)
+                               mapbox_style="carto-positron", zoom=10,
+                               labels={'NeighName':'Neighborhood', 'avg_d_mbps':'Average Download Speed'})
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
 
     #date and time
