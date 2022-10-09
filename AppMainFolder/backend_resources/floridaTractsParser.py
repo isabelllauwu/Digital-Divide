@@ -1,5 +1,16 @@
 import geopandas as gp
 import geojson
+import json
+import requests
+
+# Creates a json file with the annual income data for each census tract in Orange County
+def create_income_json_file():
+    api_key = '94f15b818568d82a42e2c1120de6af89ccd4d6b8'
+    api_url = 'https://api.census.gov/data/2020/acs/acs5/subject?get=NAME,S1902_C03_001E&for=tract:*&in=county:095&in=state:12&key=' + api_key
+    income_json_data = requests.get(api_url).json()
+    with open("assets\\annual_income_orange_county_tracts.json", "w") as file:
+        json.dump(income_json_data, file)
+        print("Annual income json file created!")
 
 # Creates a geojson file from the TIGER/Line Shapefile downloaded from the US Census Bureau
 # https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.2020.html#list-tab-BV7EUGCSTGIS1AB989
@@ -26,5 +37,6 @@ def filter_flTracts_geojson_file():
         with open("assets\\orlando_tracts.geojson", "w") as file:
             geojson.dump(data, file)
 
-create_flTracts_geojson_file()
-filter_flTracts_geojson_file()
+# create_flTracts_geojson_file()
+# filter_flTracts_geojson_file()
+create_income_json_file()
