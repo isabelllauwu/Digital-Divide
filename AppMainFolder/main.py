@@ -22,14 +22,14 @@ now = datetime.now()
 dt = now.strftime("%d/%m/%Y %H:%M:%S")
 
 # Read geojson files
-d1 = open(r"AppMainFolder\backend_resources\results\orlando_averaged_2022-01-01.geojson")
+d1 = open(r"AppMainFolder\backend_resources\incometest7.geojson")
 data = json.load(d1)
 d2 = data["features"][0]
 
 # Extract data from JSON file
 d3 = pd.json_normalize(data, record_path=['features'])
-base = d3.loc[:, ["properties.NeighName", 'properties.avg_d_mbps']]
-base.columns = ["NeighName", "Avg Mbps"]  # change column name
+base = d3.loc[:, ["properties.NeighName", 'properties.avg_d_mbps' , "properties.avg_income"]]
+base.columns = ["NeighName", "Avg Mbps", "avg_income"]  # change column name
 
 # Function to generate drop-down list (Neighborhood names)
 
@@ -247,7 +247,8 @@ speed = html.Div([
         id="internet",
         options=[
             {'label': 'Upload Speeds', 'value': 'avg_u_mbps'},
-            {'label': 'Download Speeds', 'value': 'avg_d_mbps'}
+            {'label': 'Download Speeds', 'value': 'avg_d_mbps'},
+            {'label': 'Income', 'value': 'avg_income'}
 
 
         ],
@@ -463,11 +464,11 @@ def display_page(pathname):
 )
 # call back function
 def update_map(qrt, name, int_speed, colors):
-    d1 = open(r"AppMainFolder\backend_resources\results\orlando_averaged_" + qrt + ".geojson")
+    d1 = open(r"AppMainFolder\backend_resources\incometest7.geojson")
     data = json.load(d1)
     base = pd.json_normalize(data, record_path=['features'])
-    base = base.iloc[:, [6, 7, 8]]
-    base.columns = ["NeighName", "avg_d_mbps", "avg_u_mbps"]
+    base = base.iloc[:, [6, 7, 8, 9]]
+    base.columns = ["NeighName", "avg_d_mbps", "avg_u_mbps", "avg_income"]
     if name != "All":
         base = base.loc[base.loc[:, "NeighName"] == name, ]
 
@@ -475,7 +476,8 @@ def update_map(qrt, name, int_speed, colors):
     fig = px.choropleth_mapbox(base, geojson=data, locations="NeighName", color=int_speed, featureidkey="properties.NeighName",
                                center={"lat": 28.488137, "lon": -81.331054},
                                color_continuous_scale=colors, #Changes Here
-                               mapbox_style="carto-positron", zoom=10)
+                               mapbox_style="carto-positron", zoom=10,
+                               labels={'NeighName':'Neighborhood', 'avg_d_mbps':'Average Download Speed', 'avg_income':'Average Income', 'avg_u_mbps':'Average Upload Speed'})
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
 
     #date and time
