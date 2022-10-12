@@ -81,7 +81,7 @@ logo = html.Img(src=app.get_asset_url('DigitalDivide_logo_320x240.png'), style={
 # navigation bar
 navBar = html.Nav(
             [html.A('Home', className="navItem", href='/'),
-             html.A('Graphs', className="navItem", href='/graphs') ,
+             html.A('Graphs', className="navItem", id="graphNav", href='/graphs') ,
              html.A('Test your speeds', className="navItem", href='/speedtest')
 
             ],
@@ -142,35 +142,35 @@ id="headerDiv",
 
 # images of graphs
 
-image = html.Img(src=app.get_asset_url('upSpeed.png'), style={
+image = html.Img(id = "upSpeedImg",src=app.get_asset_url('upSpeed.png'), style={
                                     "margin": "0 auto",
                                     "display": "block",
                                     "borderRadius": "1vw",
                                     "position": "relative",
                                     "zIndex": "999",
                                 })
-image2 = html.Img(src=app.get_asset_url('downSpeed.png'), style={
+image2 = html.Img(id = "downSpeedImg",src=app.get_asset_url('downSpeed.png'), style={
                                      "margin": "0 auto",
                                      "borderRadius": "1vw",
                                      "display": "block",
                                      "position": "relative",
                                      "zIndex": "999",
                                  })
-image3 = html.Img(src=app.get_asset_url('Up_Down_Speed_BG.png'), style={
+image3 = html.Img(id = "upDownSpeedImg",src=app.get_asset_url('Up_Down_Speed_BG.png'), style={
                                      "margin": "0 auto",
                                      "borderRadius": "1vw",
                                      "display": "block",
                                      "position": "relative",
                                      "zIndex": "999",
                                  })
-image4 = html.Img(src=app.get_asset_url('downSpeed_Line.png'), style={
+image4 = html.Img(id = "downSpeedLineImg",src=app.get_asset_url('downSpeed_Line.png'), style={
                                         "margin": "0 auto",
                                         "borderRadius": "1vw",
                                         "display": "block",
                                         "position": "relative",
                                         "zIndex": "999",
                                  })
-image5 = html.Img(src=app.get_asset_url('upSpeed_Line.png'), style={
+image5 = html.Img(id = "upSpeedLineImg",src=app.get_asset_url('upSpeed_Line.png'), style={
                                         "margin": "0 auto",
                                         "borderRadius": "1vw",
                                         "display": "block",
@@ -178,7 +178,7 @@ image5 = html.Img(src=app.get_asset_url('upSpeed_Line.png'), style={
                                         "zIndex": "999",
                                  })
 
-image6 = html.Img(src=app.get_asset_url('avgSpeed_Line.png'), style={
+image6 = html.Img(id = "avgSpeedLineImg",src=app.get_asset_url('avgSpeed_Line.png'), style={
                                         "margin": "0 auto",
                                         "borderRadius": "1vw",
                                         "display": "block",
