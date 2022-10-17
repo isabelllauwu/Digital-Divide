@@ -14,6 +14,7 @@ import os
 
 
 #Choropleth color options Changes Here
+
 colorscales = px.colors.named_colorscales()
 
 
@@ -82,7 +83,8 @@ logo = html.Img(src=app.get_asset_url('DigitalDivide_logo_320x240.png'), style={
 navBar = html.Nav(
             [html.A('Home', className="navItem", href='/'),
              html.A('Graphs', className="navItem", id="graphNav", href='/graphs') ,
-             html.A('Test your speeds', className="navItem", href='/speedtest')
+             html.A('Test your speeds', className="navItem", href='/speedtest'),
+             html.A('Internet access map', className="navItem", href='/access-map')
 
             ],
             style={
@@ -446,6 +448,34 @@ speed_page = html.Div([
             src="//openspeedtest.com/Get-widget.php"), style= {"display":"flex"})
 ])
 
+access_map = html.Div([
+    html.Div([
+        BGimage,
+        banner,
+        html.Div(html.Iframe("Iframe",
+                             style={
+                                 "z-index": "999",
+                                 "width": "100%",
+                                 "height": "800px"},
+                             src="assets/access-map.html"), style={"display": "flex"}),
+        html.Br(),
+    ],
+        style={
+            "position": "absolute",
+            "top": "0px",
+            "left": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "width": "100%",
+            "backgroundColor": "#15202B",
+            "margin": "0",
+            "padding": "0"
+        },
+        id="bodyBackgroundColor",
+    ),
+
+])
+
 # Final Layout
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
@@ -466,9 +496,10 @@ def display_page(pathname):
         return graphs_layout
     elif pathname == '/speedtest':
         return speed_page
+    elif pathname == '/access-map':
+        return access_map
     else:
         return home_page
-
 
 # App callback
 @app.callback(
