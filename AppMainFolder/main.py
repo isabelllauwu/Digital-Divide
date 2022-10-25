@@ -142,49 +142,14 @@ id="headerDiv",
 
 # images of graphs
 
-image = html.Img(id = "upSpeedImg",src=app.get_asset_url('upSpeed.png'), style={
-                                    "margin": "0 auto",
-                                    "display": "block",
-                                    "borderRadius": "1vw",
-                                    "position": "relative",
-                                    "zIndex": "999",
-                                })
-image2 = html.Img(id = "downSpeedImg",src=app.get_asset_url('downSpeed.png'), style={
-                                     "margin": "0 auto",
-                                     "borderRadius": "1vw",
-                                     "display": "block",
-                                     "position": "relative",
-                                     "zIndex": "999",
-                                 })
-image3 = html.Img(id = "upDownSpeedImg",src=app.get_asset_url('Up_Down_Speed_BG.png'), style={
-                                     "margin": "0 auto",
-                                     "borderRadius": "1vw",
-                                     "display": "block",
-                                     "position": "relative",
-                                     "zIndex": "999",
-                                 })
-image4 = html.Img(id = "downSpeedLineImg",src=app.get_asset_url('downSpeed_Line.png'), style={
-                                        "margin": "0 auto",
-                                        "borderRadius": "1vw",
-                                        "display": "block",
-                                        "position": "relative",
-                                        "zIndex": "999",
-                                 })
-image5 = html.Img(id = "upSpeedLineImg",src=app.get_asset_url('upSpeed_Line.png'), style={
-                                        "margin": "0 auto",
-                                        "borderRadius": "1vw",
-                                        "display": "block",
-                                        "position": "relative",
-                                        "zIndex": "999",
-                                 })
+# images of graphs
 
-image6 = html.Img(id = "avgSpeedLineImg",src=app.get_asset_url('avgSpeed_Line.png'), style={
-                                        "margin": "0 auto",
-                                        "borderRadius": "1vw",
-                                        "display": "block",
-                                        "position": "relative",
-                                        "zIndex": "999",
-                                 })
+image = html.Img(src=app.get_asset_url('upSpeed.png'), className ="Image") 
+image2 = html.Img(src=app.get_asset_url('downSpeed.png'), className ="Image")
+image3 = html.Img(src=app.get_asset_url('Up_Down_Speed_BG.png'), className ="Image")
+image4 = html.Img(src=app.get_asset_url('downSpeed_Line.png'),  className ="Image")
+image5 = html.Img(src=app.get_asset_url('upSpeed_Line.png'), className ="Image")
+image6 = html.Img(src=app.get_asset_url('avgSpeed_Line.png'), className ="Image")
 # Background image
 
 BGimage = html.Img(src=app.get_asset_url('orlando-cityscape.jpg'), style={
