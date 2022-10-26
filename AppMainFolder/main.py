@@ -144,12 +144,12 @@ id="headerDiv",
 
 # images of graphs
 
-image = html.Img(src=app.get_asset_url('upSpeed.png'), className ="Image") 
-image2 = html.Img(src=app.get_asset_url('downSpeed.png'), className ="Image")
-image3 = html.Img(src=app.get_asset_url('Up_Down_Speed_BG.png'), className ="Image")
-image4 = html.Img(src=app.get_asset_url('downSpeed_Line.png'),  className ="Image")
-image5 = html.Img(src=app.get_asset_url('upSpeed_Line.png'), className ="Image")
-image6 = html.Img(src=app.get_asset_url('avgSpeed_Line.png'), className ="Image")
+image = html.Img(src=app.get_asset_url('upSpeed.png'), className ="Image", id = "upSpeedImg") 
+image2 = html.Img(src=app.get_asset_url('downSpeed.png'), className ="Image", id = "downSpeedImg")
+image3 = html.Img(src=app.get_asset_url('Up_Down_Speed_BG.png'), className ="Image", id = "upDownSpeedImg")
+image4 = html.Img(src=app.get_asset_url('downSpeed_Line.png'),  className ="Image", id = "downSpeedLineImg" )
+image5 = html.Img(src=app.get_asset_url('upSpeed_Line.png'), className ="Image", id = "upSpeedLineImg")
+image6 = html.Img(src=app.get_asset_url('avgSpeed_Line.png'), className ="Image", id = "avgSpeedLineImg")
 # Background image
 
 BGimage = html.Img(src=app.get_asset_url('orlando-cityscape.jpg'), style={
