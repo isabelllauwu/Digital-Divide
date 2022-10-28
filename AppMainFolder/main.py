@@ -1,17 +1,15 @@
 # Magnificent 7
 # -*- coding: utf-8 -*-
 
-import dash
-from dash import html
-from dash import dcc
-import plotly.express as px
-import pandas as pd
-from dash.dependencies import Input, Output, State
 import json
+import os
 from datetime import datetime
 
-import os
-
+import dash
+import pandas as pd
+import plotly.express as px
+from dash import dcc, html
+from dash.dependencies import Input, Output, State
 
 #Choropleth color options Changes Here
 colorscales = px.colors.named_colorscales()
@@ -22,7 +20,7 @@ now = datetime.now()
 dt = now.strftime("%d/%m/%Y %H:%M:%S")
 
 # Read geojson files
-d1 = open(r"AppMainFolder\backend_resources\incometest7.geojson")
+d1 = open(r"backend_resources\results\orlando_averaged_2022-01-01.geojson")
 data = json.load(d1)
 d2 = data["features"][0]
 
@@ -464,11 +462,16 @@ def display_page(pathname):
 )
 # call back function
 def update_map(qrt, name, int_speed, colors):
-    d1 = open(r"AppMainFolder\backend_resources\incometest7.geojson")
+    d1 = open(r"backend_resources\results\orlando_averaged_" + qrt + ".geojson")
     data = json.load(d1)
     base = pd.json_normalize(data, record_path=['features'])
-    base = base.iloc[:, [6, 7, 8, 9]]
-    base.columns = ["NeighName", "avg_d_mbps", "avg_u_mbps", "avg_income"]
+  
+    if (qrt.__eq__("2022-01-01")):
+        base = base.iloc[:, [6, 7, 8, 9]]
+        base.columns = ["NeighName", "avg_d_mbps", "avg_u_mbps", "avg_income"]
+    else:
+        base = base.iloc[:, [6, 7, 8]]
+        base.columns = ["NeighName", "avg_d_mbps", "avg_u_mbps"]
     if name != "All":
         base = base.loc[base.loc[:, "NeighName"] == name, ]
 
@@ -488,4 +491,4 @@ def update_map(qrt, name, int_speed, colors):
 
 if __name__ == '__main__':
     app.run_server(debug=True, dev_tools_ui=False)
-    serve(app)
+    
