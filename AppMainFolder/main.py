@@ -80,7 +80,7 @@ logo = html.Img(src=app.get_asset_url('DigitalDivide_logo_320x240.png'), style={
 navBar = html.Nav(
             [html.A('Home', className="navItem", href='/'),
              html.A('Graphs', className="navItem", id="graphNav", href='/graphs') ,
-             html.A('Test your speeds', className="navItem", href='/speedtest')
+             html.A('Test your speeds', className="navItem", id="speedNav", href='/speedtest')
 
             ],
             style={
@@ -441,7 +441,7 @@ speed_page = html.Div([
         banner,
         html.Br(),
         ]),
-    html.Div(html.Iframe("Iframe", style={ "z-index":"999","min-height":"360px","width":"100%"},
+    html.Div(html.Iframe("Iframe", id="speedIframe", style={ "z-index":"999","min-height":"360px","width":"100%"},
             src="//openspeedtest.com/Get-widget.php"), style= {"display":"flex"})
 ])
 
