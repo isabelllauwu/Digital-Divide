@@ -1,17 +1,15 @@
 # Magnificent 7
 # -*- coding: utf-8 -*-
 
-import dash
-from dash import html
-from dash import dcc
-import plotly.express as px
-import pandas as pd
-from dash.dependencies import Input, Output, State
 import json
+import os
 from datetime import datetime
 
-import os
-
+import dash
+import pandas as pd
+import plotly.express as px
+from dash import dcc, html
+from dash.dependencies import Input, Output, State
 
 #Choropleth color options Changes Here
 
@@ -29,8 +27,8 @@ d2 = data["features"][0]
 
 # Extract data from JSON file
 d3 = pd.json_normalize(data, record_path=['features'])
-base = d3.loc[:, ["properties.NeighName", 'properties.avg_d_mbps']]
-base.columns = ["NeighName", "Avg Mbps"]  # change column name
+base = d3.loc[:, ["properties.NeighName", 'properties.avg_d_mbps' , "properties.avg_income"]]
+base.columns = ["NeighName", "Avg Mbps", "avg_income"]  # change column name
 
 # Function to generate drop-down list (Neighborhood names)
 
@@ -83,7 +81,7 @@ logo = html.Img(src=app.get_asset_url('DigitalDivide_logo_320x240.png'), style={
 navBar = html.Nav(
             [html.A('Home', className="navItem", href='/'),
              html.A('Graphs', className="navItem", id="graphNav", href='/graphs') ,
-             html.A('Test your speeds', className="navItem", href='/speedtest'),
+             html.A('Test your speeds', className="navItem", id="speedNav", href='/speedtest'),
              html.A('Internet access map', className="navItem", href='/access-map')
 
             ],
@@ -251,7 +249,8 @@ speed = html.Div([
         id="internet",
         options=[
             {'label': 'Upload Speeds', 'value': 'avg_u_mbps'},
-            {'label': 'Download Speeds', 'value': 'avg_d_mbps'}
+            {'label': 'Download Speeds', 'value': 'avg_d_mbps'},
+            {'label': 'Income', 'value': 'avg_income'}
 
 
         ],
@@ -444,7 +443,7 @@ speed_page = html.Div([
         banner,
         html.Br(),
         ]),
-    html.Div(html.Iframe("Iframe", style={ "z-index":"999","min-height":"360px","width":"100%"},
+    html.Div(html.Iframe("Iframe", id="speedIframe", style={ "z-index":"999","min-height":"360px","width":"100%"},
             src="//openspeedtest.com/Get-widget.php"), style= {"display":"flex"})
 ])
 
@@ -513,8 +512,13 @@ def update_map(qrt, name, int_speed, colors):
     d1 = open(r"backend_resources\results\orlando_averaged_" + qrt + ".geojson")
     data = json.load(d1)
     base = pd.json_normalize(data, record_path=['features'])
-    base = base.iloc[:, [6, 7, 8]]
-    base.columns = ["NeighName", "avg_d_mbps", "avg_u_mbps"]
+  
+    if (qrt.__eq__("2022-01-01")):
+        base = base.iloc[:, [6, 7, 8, 9]]
+        base.columns = ["NeighName", "avg_d_mbps", "avg_u_mbps", "avg_income"]
+    else:
+        base = base.iloc[:, [6, 7, 8]]
+        base.columns = ["NeighName", "avg_d_mbps", "avg_u_mbps"]
     if name != "All":
         base = base.loc[base.loc[:, "NeighName"] == name, ]
 
@@ -523,7 +527,7 @@ def update_map(qrt, name, int_speed, colors):
                                center={"lat": 28.488137, "lon": -81.331054},
                                color_continuous_scale=colors, #Changes Here
                                mapbox_style="carto-positron", zoom=10,
-                               labels={'NeighName':'Neighborhood', 'avg_d_mbps':'Average Download Speed'})
+                               labels={'NeighName':'Neighborhood', 'avg_d_mbps':'Average Download Speed', 'avg_income':'Average Income', 'avg_u_mbps':'Average Upload Speed'})
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
 
     #date and time
@@ -534,4 +538,4 @@ def update_map(qrt, name, int_speed, colors):
 
 if __name__ == '__main__':
     app.run_server(debug=True, dev_tools_ui=False)
-    serve(app)
+    
