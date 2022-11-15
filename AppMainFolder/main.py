@@ -70,12 +70,13 @@ reset_data = html.A(html.Button('Click Here to Reset Map',
 
 # Logo image
 
-logo = html.Img(src=app.get_asset_url('DigitalDivide_logo_320x240.png'), style={
+logo = html.Img(src=app.get_asset_url('CityofOrlando_white.png'), style={
                                       "position": "absolute",
-                                      "top": "-40px",
-                                      "height": "180px",
+                                      "top": "-10px",
+                                      "height": "70px",
                                       "opacity": "67%"
                                  })
+
 
 # navigation bar
 navBar = html.Nav(
@@ -103,21 +104,18 @@ banner = html.Div([
             "left": "60",
             }
             ),  # ------- First Title
-    html.H3(["A comprehensive look at the internet speeds throughout Orlando, Florida and its city districts."],
+     html.Img(src=app.get_asset_url('DigitalDivide_logo_320x240.png'),
             className="titleDescription",
             style={
-            #"text-align": "right",
-            "position": "relative",
-            "left": "256px",
-            "top": "10px",
-            "marginRight": "300px",
-            "fontSize": "25pt",
-            "font-family": "Trebuchet MS",
-            "color": "white",
-            "opacity": "67%",
-            "max-width": "80%"
+             "display": "block",
+             "margin-left": "auto",
+             "margin-right": "auto",
+             "width": "18%",
+             "border-radius": "16px"
             }
-            ),  # -----------Second Title
+            ),  
+            
+              # -----------Second Title
     html.Button("Light Mode", className="colorButton",            
                 style={
                     "position": "relative",
