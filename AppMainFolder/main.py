@@ -21,7 +21,7 @@ now = datetime.now()
 dt = now.strftime("%d/%m/%Y %H:%M:%S")
 
 # Read geojson files
-d1 = open(r"backend_resources\results\orlando_averaged_2022-01-01.geojson")
+d1 = open(r"C:\Users\isabella\Digital-Divide\AppMainFolder\backend_resources\results\orlando_averaged_2022-01-01.geojson")
 data = json.load(d1)
 d2 = data["features"][0]
 
@@ -70,12 +70,13 @@ reset_data = html.A(html.Button('Click Here to Reset Map',
 
 # Logo image
 
-logo = html.Img(src=app.get_asset_url('DigitalDivide_logo_320x240.png'), style={
+logo = html.Img(src=app.get_asset_url('CityofOrlando_white.png'), style={
                                       "position": "absolute",
-                                      "top": "-40px",
-                                      "height": "180px",
+                                      "top": "-10px",
+                                      "height": "70px",
                                       "opacity": "67%"
                                  })
+
 
 # navigation bar
 navBar = html.Nav(
