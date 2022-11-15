@@ -15,7 +15,7 @@ from dash.dependencies import Input, Output, State
 
 colorscales = px.colors.named_colorscales()
 
-
+#test
 # System Date and Time
 now = datetime.now()
 dt = now.strftime("%d/%m/%Y %H:%M:%S")
@@ -70,12 +70,13 @@ reset_data = html.A(html.Button('Click Here to Reset Map',
 
 # Logo image
 
-logo = html.Img(src=app.get_asset_url('DigitalDivide_logo_320x240.png'), style={
+logo = html.Img(src=app.get_asset_url('CityofOrlando_white.png'), style={
                                       "position": "absolute",
-                                      "top": "-40px",
-                                      "height": "180px",
+                                      "top": "-10px",
+                                      "height": "70px",
                                       "opacity": "67%"
                                  })
+
 
 # navigation bar
 navBar = html.Nav(
@@ -105,22 +106,25 @@ banner = html.Div([
             "left": "60",
             }
             ),  # ------- First Title
-    html.H3(["A comprehensive look at the internet speeds throughout Orlando, Florida and its city districts."],
+     html.Img(src=app.get_asset_url('DigitalDivide_logo_320x240.png'),
             className="titleDescription",
             style={
-            #"text-align": "right",
             "position": "relative",
-            "left": "256px",
             "top": "10px",
-            "marginRight": "300px",
             "fontSize": "25pt",
             "font-family": "Trebuchet MS",
             "color": "white",
             "opacity": "67%",
             "max-width": "80%",
-            "border-radius": "16px",
+            "display": "block",
+            "margin-left": "auto",
+            "margin-right": "auto",
+            "width": "18%",
+            "border-radius": "16px"
             }
-            ),  # -----------Second Title
+            ),  
+            
+              # -----------Second Title
     html.Button("Light Mode", className="colorButton",            
                 style={
                     "position": "relative",
@@ -147,49 +151,14 @@ id="headerDiv",
 
 # images of graphs
 
-image = html.Img(id = "upSpeedImg",src=app.get_asset_url('upSpeed.png'), style={
-                                    "margin": "0 auto",
-                                    "display": "block",
-                                    "borderRadius": "1vw",
-                                    "position": "relative",
-                                    "zIndex": "999",
-                                })
-image2 = html.Img(id = "downSpeedImg",src=app.get_asset_url('downSpeed.png'), style={
-                                     "margin": "0 auto",
-                                     "borderRadius": "1vw",
-                                     "display": "block",
-                                     "position": "relative",
-                                     "zIndex": "999",
-                                 })
-image3 = html.Img(id = "upDownSpeedImg",src=app.get_asset_url('Up_Down_Speed_BG.png'), style={
-                                     "margin": "0 auto",
-                                     "borderRadius": "1vw",
-                                     "display": "block",
-                                     "position": "relative",
-                                     "zIndex": "999",
-                                 })
-image4 = html.Img(id = "downSpeedLineImg",src=app.get_asset_url('downSpeed_Line.png'), style={
-                                        "margin": "0 auto",
-                                        "borderRadius": "1vw",
-                                        "display": "block",
-                                        "position": "relative",
-                                        "zIndex": "999",
-                                 })
-image5 = html.Img(id = "upSpeedLineImg",src=app.get_asset_url('upSpeed_Line.png'), style={
-                                        "margin": "0 auto",
-                                        "borderRadius": "1vw",
-                                        "display": "block",
-                                        "position": "relative",
-                                        "zIndex": "999",
-                                 })
+# images of graphs
 
-image6 = html.Img(id = "avgSpeedLineImg",src=app.get_asset_url('avgSpeed_Line.png'), style={
-                                        "margin": "0 auto",
-                                        "borderRadius": "1vw",
-                                        "display": "block",
-                                        "position": "relative",
-                                        "zIndex": "999",
-                                 })
+image = html.Img(src=app.get_asset_url('upSpeed.png'), className ="Image", id = "upSpeedImg") 
+image2 = html.Img(src=app.get_asset_url('downSpeed.png'), className ="Image", id = "downSpeedImg")
+image3 = html.Img(src=app.get_asset_url('Up_Down_Speed_BG.png'), className ="Image", id = "upDownSpeedImg")
+image4 = html.Img(src=app.get_asset_url('downSpeed_Line.png'),  className ="Image", id = "downSpeedLineImg" )
+image5 = html.Img(src=app.get_asset_url('upSpeed_Line.png'), className ="Image", id = "upSpeedLineImg")
+image6 = html.Img(src=app.get_asset_url('avgSpeed_Line.png'), className ="Image", id = "avgSpeedLineImg")
 # Background image
 
 BGimage = html.Img(src=app.get_asset_url('orlando-cityscape.jpg'), style={
