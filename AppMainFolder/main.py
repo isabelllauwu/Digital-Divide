@@ -62,7 +62,7 @@ reset_data = html.A(html.Button('Click Here to Reset Map',
                                     "backgroundColor": "white",
                                     "color": "black",
                                     "width": "175px",
-                                    "borderRadius": "1vw",
+                                    "border-radius": "16px",
                                     "display": "block",
                                 }
 
@@ -87,10 +87,12 @@ navBar = html.Nav(
             ],
             style={
                 "font-family": "Trebuchet MS",
-                "backgroundColor": "#1d2b37",
+                "backgroundColor": "transparent",
                 "display": "flex",
                 "margin": "5px",
-                "justify-content":"center"
+                "justify-content":"center",
+                "border-radius": "16px",
+                
             }
             )
 
@@ -115,14 +117,16 @@ banner = html.Div([
             "font-family": "Trebuchet MS",
             "color": "white",
             "opacity": "67%",
-            "max-width": "80%"
+            "max-width": "80%",
+            "border-radius": "16px",
             }
             ),  # -----------Second Title
     html.Button("Light Mode", className="colorButton",            
                 style={
                     "position": "relative",
                     "float": "right",
-                    "font-family": "Trebuchet MS"
+                    "font-family": "Trebuchet MS",
+                    "border-radius": "16px"
                 }
                 ),
     navBar,
@@ -136,7 +140,8 @@ id="headerDiv",
         "top": "0",
         "left": "0",
         "right": "0",        
-        "backgroundColor": "#1d2b37",
+        "backgroundColor": "transparent",
+          
 }
 )
 
