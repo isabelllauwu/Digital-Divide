@@ -62,7 +62,7 @@ reset_data = html.A(html.Button('Click Here to Reset Map',
                                     "backgroundColor": "white",
                                     "color": "black",
                                     "width": "175px",
-                                    "borderRadius": "1vw",
+                                    "border-radius": "16px",
                                     "display": "block",
                                 }
 
@@ -88,10 +88,12 @@ navBar = html.Nav(
             ],
             style={
                 "font-family": "Trebuchet MS",
-                "backgroundColor": "#1d2b37",
+                "backgroundColor": "transparent",
                 "display": "flex",
                 "margin": "5px",
-                "justify-content":"center"
+                "justify-content":"center",
+                "border-radius": "16px",
+                
             }
             )
 
@@ -107,11 +109,18 @@ banner = html.Div([
      html.Img(src=app.get_asset_url('DigitalDivide_logo_320x240.png'),
             className="titleDescription",
             style={
-             "display": "block",
-             "margin-left": "auto",
-             "margin-right": "auto",
-             "width": "18%",
-             "border-radius": "16px"
+            "position": "relative",
+            "top": "10px",
+            "fontSize": "25pt",
+            "font-family": "Trebuchet MS",
+            "color": "white",
+            "opacity": "67%",
+            "max-width": "80%",
+            "display": "block",
+            "margin-left": "auto",
+            "margin-right": "auto",
+            "width": "18%",
+            "border-radius": "16px"
             }
             ),  
             
@@ -120,7 +129,8 @@ banner = html.Div([
                 style={
                     "position": "relative",
                     "float": "right",
-                    "font-family": "Trebuchet MS"
+                    "font-family": "Trebuchet MS",
+                    "border-radius": "16px"
                 }
                 ),
     navBar,
@@ -134,7 +144,8 @@ id="headerDiv",
         "top": "0",
         "left": "0",
         "right": "0",        
-        "backgroundColor": "#1d2b37",
+        "backgroundColor": "transparent",
+          
 }
 )
 
