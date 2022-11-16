@@ -427,9 +427,10 @@ access_map = html.Div([
         banner,
         html.Div(html.Iframe("Iframe",
                              style={
+                                 "margin":"0 auto",
                                  "z-index": "999",
-                                 "width": "100%",
-                                 "height": "800px"},
+                                 "width": "60%",
+                                 "height": "500px"},
                              src="assets/access-map.html"), style={"display": "flex"}),
         html.Br(),
     ],
