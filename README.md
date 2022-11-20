@@ -18,6 +18,8 @@ Digital Divide is a continuous software developed by mutliple classes in Valenci
     - i.e. 127.0.0.1:8050 in Google Chrome
 
 ### Requirement Notes
-Using PyTest for application testing. https://docs.pytest.org/en/7.2.x/
+Using PyTest for application testing. Refer to the developer documentationg for detailed instructions.
+
+https://docs.pytest.org/en/7.2.x/
 
 As of the current version of this software, you must be using Windows, Linux, or a Windows VM within Mac to run this cross platform.
