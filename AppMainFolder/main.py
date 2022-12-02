@@ -419,7 +419,20 @@ speed_page = html.Div([
         ]),
     html.Div(html.Iframe("Iframe", id="speedIframe", style={ "z-index":"999","min-height":"360px","width":"100%"},
             src="//openspeedtest.com/Get-widget.php"), style= {"display":"flex"})
-])
+],
+           style={
+        "position": "absolute",
+        "top": "0px",
+        "left": "0px",
+        "right": "0px",
+        "bottom": "0px",
+        "width": "100%",
+        "height": "3500px",
+        "backgroundColor": "#15202B",
+        "margin": "0",
+        "padding": "0"
+    },
+    id = "bodyBackgroundColor"),
 
 access_map = html.Div([
     html.Div([
