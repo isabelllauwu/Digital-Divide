@@ -309,6 +309,7 @@ container_3 = html.Div([
     "row-gap": "30px",
     "margin": "50px",
     "zIndex": "999",
+    "position":"relative",
 })
 
 
