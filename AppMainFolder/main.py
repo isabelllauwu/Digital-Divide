@@ -305,10 +305,10 @@ container_3 = html.Div([
 ],
     style={
     "display": "flex",
-    "flex-direction": "column",
-    "row-gap": "30px",
-    "margin": "50px",
+    "flex-wrap": "wrap",
+    "gap": "20px",
     "zIndex": "999",
+    "position":"relative",
 })
 
 
